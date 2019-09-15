@@ -6,18 +6,16 @@
 /*   By: blomo <blomo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:32:29 by rgendry           #+#    #+#             */
-/*   Updated: 2019/09/12 17:09:33 by blomo            ###   ########.fr       */
+/*   Updated: 2019/09/15 21:21:19 by blomo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-void    dograf(t_lem *p)//char **str, int n, char **str1, int n1) // принимаем массив комнат и их количество
+void    dograf(t_lem *p)
 {
     t_flag  *fl;
     t_v     *hashtab[p->nodesize];
-    // t_v     *node;
-
     fl = (t_flag*)malloc(sizeof(t_flag));
     fl->hash_nbr = p->nodesize;
     hashtab_init(hashtab, p->nodesize);
@@ -27,14 +25,7 @@ void    dograf(t_lem *p)//char **str, int n, char **str1, int n1) // прини�
         hashtab_add(hashtab, p->nodes[fl->i], fl->i, fl->hash_nbr);
         fl->i++;
     }
-    // i = 0;
-    // while(i < n)
-    // {
-    //     node = hashtab_lookup(hashtab, str[i], fl->hash_nbr);
-    //     printf("Node: %s, %d\n", node->key, node->value);  //печать списка смежности
-    //     i++;
-    // }
-    doconnect(hashtab, fl, p);//p->links, p->linksize);
+    doconnect(hashtab, fl, p);
 }
 
 void   copydominus(t_flag *fl, char *str)
